@@ -1,0 +1,6 @@
+{"id":"admin","msg":"test","datetime":"2021/4/14 23:00:49"}
+{"id":"admin","msg":"いいぞいいぞ","datetime":"2021/4/13 23:29:02"}
+{"id":"admin","msg":"ｄふぁえふぇｆ","datetime":"2021/4/13 23:28:52"}
+{"id":"admin","msg":"","datetime":""}
+{"id":"admin","msg":"てｓつぇ","datetime":""}
+{"id":"admin","msg":"てｓｔ","datetime":""}

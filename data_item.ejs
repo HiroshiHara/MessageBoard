@@ -1,0 +1,9 @@
+<!-- 値valからIDとメッセージを表示するパーシャル -->
+<% if (val != '') { %>
+    <% const obj = JSON.parse(val); %>
+    <tr>
+        <th><%= obj.id %></th>
+        <td><%= obj.msg %></td>
+        <td><%= obj.datetime %></td>
+    </tr>
+<% } %>

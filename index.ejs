@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <script>
+        // ページ実行時にローカルストレージからログインユーザIDを取得、表示するメソッド
+        function init() {
+            const id = localStorage.getItem('id');
+            // IDが取得できない場合ログインページに遷移
+            if (!id) {
+                // locationオブジェクト,href属性が現在アクセスしているページを示す
+                location.href = './login'
+            }
+            // ユーザIDを画面に表示
+            document.querySelector('#id').textContent = 'ID:' + id;
+            // ユーザIDをフォームのHiddenに設定
+            document.querySelector('#id_input').value = id;
+        }
+        // サブミット時にHiddenに押下日時をセットするメソッド
+        function setDatetime() {
+            const date = new Date();
+            document.querySelector('#datetime_input').value = date.toLocaleString();
+            console.log(document.querySelector('#datetime_input').value);
+        }
+    </script>
+</head>
+<body class="container" onload="init();"> 
+    <header>
+        <h1 class="display-4">Message Board</h1>
+    </header>
+    <div role="main">
+        <p>※10 Messages will be stored.</p>
+        <form action="/" method="post">
+            <!-- ログインユーザIDの表示領域-->
+            <p id="id"></p>
+            <input type="hidden" id="id_input" name="id">
+            <input type="hidden" id="datetime_input" name="datetime">
+            <div class="form-group">
+                <label for="msg">Message</label>
+                <input type="text" name="msg" id="msg" class="form-control">
+            </div>
+            <input type="submit" value="SAVE" class="btn btn-primary" onclick="setDatetime();">
+        </form>
+        <table class="table">
+            <!-- data_item.ejs(パーシャル)のパラメータvalにdataの中身を展開する -->
+            <% for(let i in data) { %>
+                <%- include('data_item', {val:data[i]}) %>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>

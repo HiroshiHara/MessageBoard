@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="https:/stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <script>
+        // ログインフォームからIDを取得し、ローカルストレージに保存後
+        // index.ejsへ遷移するメソッド
+        function setId() {
+            const id = document.querySelector('#id_input').value;
+            localStorage.setItem('id', id);
+            location.href = '/';
+        }
+    </script>
+</head>
+<body class="container" onload="init();">
+    <header>
+        <h1 class="display-4">Message Board</h1>
+    </header>
+    <div role="main">
+        <p>Please Enter Your Login Name</p>
+        <div class="form-group">
+            <label for="id_input">Login name:</label>
+            <input type="text" id="id_input" class="form-control">
+        </div>
+        <button onclick="setId();" class="btn btn-primary">SEND</button>
+    </div>
+</body>
+</html>
